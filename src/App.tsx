@@ -40,7 +40,6 @@ function App() {
 	return (
 		<div className="App">
 			<h3>{question.text}</h3>
-
 			<div
 				style={{
 					width: "max-content",
@@ -80,10 +79,14 @@ function App() {
 					)
 				)}
 			</div>
-
 			{result && <div>Result: {result}</div>}
-
 			<button onClick={calculateResult}>Check result</button>
+			<br />
+			<br />
+			<br />
+			<button onClick={() => setCurrentQuestion((state) => state - 1)}>
+				prev question
+			</button>
 			<button onClick={nextQuestion}>next question</button>
 		</div>
 	);
