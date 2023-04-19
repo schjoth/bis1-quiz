@@ -84,7 +84,13 @@ function App() {
 			<br />
 			<br />
 			<br />
-			<button onClick={() => setCurrentQuestion((state) => state - 1)}>
+			<button
+				disabled={currentQuestion === 0}
+				onClick={() =>
+					currentQuestion > 0 &&
+					setCurrentQuestion(currentQuestion - 1)
+				}
+			>
 				prev question
 			</button>
 			<button onClick={nextQuestion}>next question</button>
