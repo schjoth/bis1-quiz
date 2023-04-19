@@ -53,8 +53,9 @@ function App() {
 					gap: "1rem",
 				}}
 			>
-				{[...question.correctAnswers, ...question.wrongAnswers].map(
-					(answer) => (
+				{[...question.correctAnswers, ...question.wrongAnswers]
+					.sort(() => Math.random() - 0.5)
+					.map((answer) => (
 						<div
 							style={{
 								display: "flex",
@@ -77,8 +78,7 @@ function App() {
 								{answer}
 							</label>
 						</div>
-					)
-				)}
+					))}
 			</div>
 			{result && <div>Result: {result}</div>}
 			<button onClick={calculateResult}>Check result</button>
