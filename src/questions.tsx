@@ -543,7 +543,10 @@ const qIndexes = rawList.reduce((acc, curr, i) => {
 }, new Array());
 
 for (let i = 0; i < qIndexes.length - 1; i++) {
-	const [text, ...a] = rawList.slice(qIndexes[i], qIndexes[i + 1]);
+	let [text, ...a] = rawList.slice(qIndexes[i], qIndexes[i + 1]);
+	while (!a[0].startsWith("-")) {
+		text += " " + a.shift();
+	}
 
 	let correctAnswers: string[] = [],
 		wrongAnswers: string[] = [];
