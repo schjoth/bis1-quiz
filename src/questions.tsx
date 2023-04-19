@@ -109,7 +109,6 @@ executive information systems (new KPIs, information systems, etc).
 - The enabling technologies of MRP are CIM and mini computers.
 - The enabling technologies of MRP are robots and CIM.
 - The enabling technologies of MRP are PCs.
-2
 16 - What are the steps of the CSF method ? S
 - Y - Preparation, interview, robustness analysis, refinement.
 - Preparation, documentation, interview, reporting.
@@ -165,7 +164,6 @@ intensity.
 - Y - A fundamental dimension is responsibility, defined as the organizational unit which the indicator
 refers to.
 - Y - A fundamental dimension is time. Time is defined in terms of extension and granularity.
-3
 - Y - A fundamental dimension is clients, defined as the market segment which the indicator refers to.
 - A fundamental dimension is products, defined as the main industry where the company operates.
 24 - Among the following, select (tick) correct examples of catalog information . M P
@@ -274,7 +272,6 @@ growing environmental uncertainty . To increase their information processing cap
 - The limited individual ability to achieve organizational objectives given their innate opportunism.
 41 - What is the aim of the APIs delivered within the PaaS layer of a Cloud based ERP solution? M
 - Y - To connect external solutions to the ERP system.
-5
 - Y - To enable hybrid scenarios with on-premise software.
 - Y - To allow development of add-on solution, mobile apps and data integrations with cloud and
 onpremise software components.
@@ -331,7 +328,6 @@ activities.
 - Order-to-Cash.
 - Make-to-Stock.
 - Procure-to-Pay.
-6
 50 - The Procure-to-Pay (Non-Stock) business scenario is usually involving: M A
 - Y - Strategic Buyer.
 - Y - Operational Buyer.
