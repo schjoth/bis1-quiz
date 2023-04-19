@@ -5,8 +5,14 @@ import questions from "./questions";
 function App() {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 
-	const question = useMemo(() => {
-		return questions[currentQuestion];
+	const [question, randomizedAnswers] = useMemo((): any => {
+		const q = questions[currentQuestion];
+		return [
+			q,
+			[...q.correctAnswers, ...q.wrongAnswers].sort(
+				() => Math.random() - 0.5
+			),
+		];
 	}, [currentQuestion]);
 
 	const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
@@ -53,33 +59,28 @@ function App() {
 					gap: "1rem",
 				}}
 			>
-				{[...question.correctAnswers, ...question.wrongAnswers]
-					.sort(() => Math.random() - 0.5)
-					.map((answer) => (
-						<div
-							style={{
-								display: "flex",
-								width: 600,
-								maxWidth: "95vw",
-								flexDirection: "row",
-								gap: "1rem",
-							}}
-							key={answer}
-						>
-							<input
-								type="checkbox"
-								value={answer}
-								id={answer}
-								onChange={() => toggleAnswer(answer)}
-							/>
-							<label
-								htmlFor={answer}
-								style={{ textAlign: "left" }}
-							>
-								{answer}
-							</label>
-						</div>
-					))}
+				{randomizedAnswers.map((answer: string) => (
+					<div
+						style={{
+							display: "flex",
+							width: 600,
+							maxWidth: "95vw",
+							flexDirection: "row",
+							gap: "1rem",
+						}}
+						key={answer}
+					>
+						<input
+							type="checkbox"
+							value={answer}
+							id={answer}
+							onChange={() => toggleAnswer(answer)}
+						/>
+						<label htmlFor={answer} style={{ textAlign: "left" }}>
+							{answer}
+						</label>
+					</div>
+				))}
 			</div>
 			{result && <div>Result: {result}</div>}
 			<button onClick={calculateResult}>Check result</button>
