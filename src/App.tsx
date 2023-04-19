@@ -61,12 +61,12 @@ function App() {
 								flexDirection: "row",
 								gap: "1rem",
 							}}
+							key={answer}
 						>
 							<input
 								type="checkbox"
 								value={answer}
 								id={answer}
-								key={answer}
 								onChange={() => toggleAnswer(answer)}
 							/>
 							<label
