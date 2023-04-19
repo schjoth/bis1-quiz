@@ -59,7 +59,8 @@ function App() {
 						<div
 							style={{
 								display: "flex",
-								maxWidth: 600,
+								width: 600,
+								maxWidth: "95vw",
 								flexDirection: "row",
 								gap: "1rem",
 							}}
