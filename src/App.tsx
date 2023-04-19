@@ -21,7 +21,8 @@ function App() {
 	const [result, setResult] = useState<string>();
 	const calculateResult = () => {
 		setResult(
-			selectedAnswers.length === 0
+			selectedAnswers.length === 0 ||
+				selectedAnswers.length !== question.correctAnswers.length
 				? "Incorrect"
 				: selectedAnswers.reduce((acc, answer) => {
 						return question.correctAnswers.includes(answer)
