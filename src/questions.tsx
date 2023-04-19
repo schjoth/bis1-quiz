@@ -1,5 +1,5 @@
 const raw = `1 - Why are vertical information systems subject to failure according to the decision school ? M
-- Y - Vertical information system fails because of the bounded rationality of top managers.
+- Y - Vertical information system fails because of the bounded rationality of top managers. q
 - Y - Vertical information system fails because of increasing market uncertainty and related exceptions.
 - Vertical information system fails due to emergence of horizontal information systems.
 - Vertical information system fails because of growing behavioral uncertainty.
@@ -553,12 +553,16 @@ for (let i = 0; i < qIndexes.length - 1; i++) {
 	let correctAnswers: string[] = [],
 		wrongAnswers: string[] = [];
 
-	const answers = a.join("\n").split("\n- ");
+	let answers = a.join("\n").split("\n-");
+	if (answers[0].startsWith("- Y -")) {
+		answers[0] = answers[0].replace("- Y -", "Y -");
+	}
+	answers = answers.map((a) => a.trim());
 
 	if (text && answers) {
 		answers.forEach((a) => {
-			if (a.startsWith("- Y")) {
-				correctAnswers.push(clean(a.replace("- Y", "")));
+			if (a.startsWith("Y -")) {
+				correctAnswers.push(clean(a.replace("Y -", "")));
 			} else {
 				wrongAnswers.push(clean(a));
 			}
