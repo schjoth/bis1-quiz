@@ -50,8 +50,7 @@ handled by top manager in a reasonable time frame.
 - Behavioural uncertainty is too high and managers cannot cope with it in a reasonable time frame.
 - Information management is supported by applying market coordination system inside organizations.
 - Information management is not supported by IT.
-8 - Why are market system based on trust ? M
-1
+8 - Why are market system based on trust ? 
 - Y - Because the parties in market transactions have an unconscious trust in the ability of a market
 system to lead the price ration through the competition mechanisms.
 - Y - Because it is difficult for a buyer to assess the actual quality of products.
