@@ -94,7 +94,12 @@ function App() {
 			>
 				prev question
 			</button>
-			<button onClick={nextQuestion}>next question</button>
+			<button
+				onClick={nextQuestion}
+				disabled={currentQuestion === questions.length - 1}
+			>
+				next question
+			</button>
 		</div>
 	);
 }
