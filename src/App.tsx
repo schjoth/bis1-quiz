@@ -41,15 +41,11 @@ function App() {
 		);
 	};
 
-	const reset = useCallback(() => {
+	const nextQuestion = useCallback((distance: number) => {
 		setSelectedAnswers([]);
 		setResult(undefined);
-	}, []);
-
-	const nextQuestion = (distance: number) => {
-		reset();
 		setCurrentQuestion((state) => state + distance);
-	};
+	}, []);
 
 	return (
 		<div className="App">
