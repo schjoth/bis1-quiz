@@ -41,10 +41,14 @@ function App() {
 		);
 	};
 
-	const nextQuestion = () => {
+	const reset = useCallback(() => {
 		setSelectedAnswers([]);
 		setResult(undefined);
-		setCurrentQuestion((state) => state + 1);
+	}, []);
+
+	const nextQuestion = (distance: number) => {
+		reset();
+		setCurrentQuestion((state) => state + distance);
 	};
 
 	return (
@@ -92,15 +96,12 @@ function App() {
 			<br />
 			<button
 				disabled={currentQuestion === 0}
-				onClick={() =>
-					currentQuestion > 0 &&
-					setCurrentQuestion(currentQuestion - 1)
-				}
+				onClick={() => currentQuestion > 0 && nextQuestion(-1)}
 			>
 				prev question
 			</button>
 			<button
-				onClick={nextQuestion}
+				onClick={() => nextQuestion(1)}
 				disabled={currentQuestion === questions.length - 1}
 			>
 				next question
