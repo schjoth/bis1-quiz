@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import "./App.css";
 import questions from "./questions";
 
@@ -16,25 +16,28 @@ function App() {
 	}, [currentQuestion]);
 
 	const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
-	const toggleAnswer = (answer: string) => {
-		if (selectedAnswers.includes(answer)) {
-			setSelectedAnswers(selectedAnswers.filter((a) => a !== answer));
-		} else {
-			setSelectedAnswers([...selectedAnswers, answer]);
-		}
-	};
+
+	const toggleAnswer = useCallback((answer: string) => {
+		setSelectedAnswers((state) =>
+			state.includes(answer)
+				? state.filter((a) => a !== answer)
+				: [...state, answer]
+		);
+	}, []);
 
 	const [result, setResult] = useState<string>();
+
 	const calculateResult = () => {
 		setResult(
-			selectedAnswers.length === 0 ||
-				selectedAnswers.length !== question.correctAnswers.length
+			selectedAnswers.length !== question.correctAnswers.length
 				? "Incorrect"
-				: selectedAnswers.reduce((acc, answer) => {
-						return question.correctAnswers.includes(answer)
-							? acc
-							: "Incorrect";
-				  }, "Correct")
+				: selectedAnswers.reduce(
+						(acc, answer) =>
+							question.correctAnswers.includes(answer)
+								? acc
+								: "Incorrect",
+						"Correct"
+				  )
 		);
 	};
 
